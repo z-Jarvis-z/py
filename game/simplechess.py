@@ -134,7 +134,7 @@ def DrawGrid(screen,line_color=BLACKCOLOR,pen_size=10,WIDTH=WIDTH,HEIGHT=HEIGHT)
 # 画六个棋子
 def DrawChess(screen,chess_list,position_list):
     for i in range(9):
-        if chess_list[i] != None:
+        if chess_list[i] != NONE:
             if chess_list[i] == BLACK :
                 pygame.draw.circle(screen,BLACKCOLOR,position_list[i],CHESSSIZE)
             elif chess_list[i] == WHITE :
