@@ -153,6 +153,9 @@ def GameStart():
     font = pygame.font.SysFont('Arial', 32)#文本的字体，大小
     screen = pygame.display.set_mode((WIDTH,HEIGHT)) #创建一个窗口
     while True:
+        for event in pygame.event.get():
+            if event.type in (QUIT,KEYDOWN):
+                sys.exit()#终止程序
         screen.fill(screen_color)
         DrawGrid(screen)#maybe去掉更好看xuanran
         DrawChess(screen,chess_list,position_list)
@@ -160,9 +163,6 @@ def GameStart():
         black_txt = font.render(str(black_score),True,BLACKCOLOR)
         screen.blit(white_txt, WHITEPOS)#显示
         screen.blit(black_txt,BLACKPOS)
-        for event in pygame.event.get():
-            if event.type in (QUIT,KEYDOWN):
-                sys.exit()#终止程序
         #获取鼠标坐标信息
         x,y = pygame.mouse.get_pos()
         pos=FindPos(position_list,x,y)#定位
